@@ -1,5 +1,6 @@
 # TIC-TAC-TOE-GAME
-Allows a winner to be determined in a criss-cross game
+#Allows a winner to be determined in a criss-cross game
+
 
 from tkinter import *
 def callback(r,c):
@@ -13,8 +14,8 @@ def callback(r,c):
 		b[r][c].configure(text="O",fg="green",bg="blue")
 		type[r][c]="O"
 		player="X"
-    #check_for_winner()
 
+#check_for_winner()  
 def check_for_winner():
 	global stop_game
 	for i in range(3):
@@ -41,6 +42,16 @@ def check_for_winner():
 			b[1][1].configure(bg="grey")
 			b[0][2].configure(bg="grey")
 root=Tk()
+root.title("GAME")  
+root.configure(bg="powder blue")
+root.resizable(0,0)
+root.geometry("535x600+200+100")
+
+
+
+#reset_button
+reset_btn=Button(root,text="RESET",font=("Verdana",15,"bold"),height=2,width=20,bg="gainsboro",command=reset)
+reset_btn.place(x=120,y=300)
 
 type=[[0,0,0],
 	  [0,0,0],
@@ -52,7 +63,7 @@ b=[[0,0,0],
 
 for i in range(3):
 	for j in range(3):
-		b[i][j]=Button(font=("Verdana,60"),width=3,bg="red",command=lambda r=i,c=j:callback(r,c))
+		b[i][j]=Button(font=("Verdana,60"),width=19,height=2,bg="red",command=lambda r=i,c=j:callback(r,c))
 		b[i][j].grid(row=i,column=j)
 player="X"
 stop_game=False
